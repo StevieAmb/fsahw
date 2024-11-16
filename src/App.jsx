@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const Header = ({ text }) => {
   return (
-    <header>{text}</header>
+    <h1>{text}</h1>
   )
 }
 
@@ -25,8 +25,8 @@ const App = () => {
   }
 
   const handleBadReviewClicks = () => {
-    let updatedGoodReviews = good + 1
-    setGood(updatedGoodReviews)
+    let updatedBadReviews = bad + 1
+    setBad(updatedBadReviews)
   }
 
   const handleNeutralReviewClicks = () => {
@@ -39,6 +39,14 @@ const App = () => {
       <Header
       text='Give Feedback'
       />
+      <Button handleClick={handleGoodReviewClicks} text='good' />
+      <Button handleClick={handleBadReviewClicks} text='bad' />
+      <Header
+      text='Statistics'
+      />
+      <p>good: {good}</p>
+      <p>bad: {bad}</p>
+      <p></p>
     </div>
   )
 }

@@ -13,6 +13,12 @@ const Button = ({handleClick, text}) => {
   )
 }
 
+const Statistics = () => {
+  return (
+    <p>{stats}</p>
+  )
+}
+
 const App = () => {
 
   const [good, setGood] = useState(0)

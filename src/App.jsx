@@ -30,8 +30,8 @@ const App = () => {
   }
 
   const handleNeutralReviewClicks = () => {
-    let updatedGoodReviews = good + 1
-    setGood(updatedGoodReviews)
+    let updatedNeutralReviews = neutral + 1
+    setNeutral(updatedNeutralReviews)
   }
 
   return (
@@ -40,13 +40,14 @@ const App = () => {
       text='Give Feedback'
       />
       <Button handleClick={handleGoodReviewClicks} text='good' />
+      <Button handleClick={handleNeutralReviewClicks} text='neutral' />
       <Button handleClick={handleBadReviewClicks} text='bad' />
       <Header
       text='Statistics'
       />
       <p>good: {good}</p>
       <p>bad: {bad}</p>
-      <p></p>
+      <p>neutral: {neutral}</p>
     </div>
   )
 }

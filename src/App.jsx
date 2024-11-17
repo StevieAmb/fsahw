@@ -13,9 +13,23 @@ const Button = ({handleClick, text}) => {
   )
 }
 
-const Statistics = () => {
+const Statistics = ({goodReviews, badReviews, neutralReviews}) => {
+
+  if( !goodReviews && !badReviews && !neutralReviews) {
+    return (
+      <p>No feedback given</p>
+    )
+  }
+
+
   return (
-    <p>{stats}</p>
+    <>
+      <p>good: {goodReviews}</p>
+      <p>bad: {badReviews}</p>
+      <p>neutral: {neutralReviews}</p>
+      <p>all: {goodReviews + badReviews + neutralReviews}</p>
+      <p>positive: {goodReviews / (goodReviews + badReviews + neutralReviews)}%</p>
+    </>
   )
 }
 
@@ -51,11 +65,7 @@ const App = () => {
       <Header
       text='Statistics'
       />
-      <p>good: {good}</p>
-      <p>bad: {bad}</p>
-      <p>neutral: {neutral}</p>
-      <p>all: {good + bad + neutral}</p>
-      <p>positive: {good / (good + bad + neutral)}%</p>
+      <Statistics goodReviews={good} badReviews={bad} neutralReviews={neutral} />
     </div>
   )
 }

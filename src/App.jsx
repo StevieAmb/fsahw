@@ -22,7 +22,9 @@ const StatisticLine = ({text, value}) => {
       <td>
         <p>{text}: </p>
       </td>
-      <p>{value}</p>
+      <td>
+        <p>{value}</p>
+      </td>
     </tr>
   )
 

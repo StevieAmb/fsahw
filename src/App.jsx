@@ -32,12 +32,22 @@ const App = () => {
     setSelected(randomIndex)
   }
 
+  //There needs to be an object that takes into account the selected anecdote (index)
+  //And then is also able to add the votes as a property of selected.
+
+  //We need to be able to store it in state so that we can pass it down as props.
+  //How do I store the correct property, and then... how do I increase it?
+
   return (
     <div>
       <p>{anecdotes[selected]}</p>
       <Button 
         handleClick={handleAnecdoteSelection} 
         text='next anecdote' 
+      />
+      <Button 
+        handleClick={null} 
+        text='vote' 
       />
     </div>
   )

@@ -24,21 +24,14 @@ const StatisticLine = ({text, value}) => {
 }
 
 const Statistics = ({goodReviews, badReviews, neutralReviews}) => {
-
-  if( !goodReviews && !badReviews && !neutralReviews) {
-    return (
-      <p>No feedback given</p>
-    )
-  }
-
   return (
-    <>
-      <p>good: {goodReviews}</p>
-      <p>bad: {badReviews}</p>
-      <p>neutral: {neutralReviews}</p>
-      <p>all: {goodReviews + badReviews + neutralReviews}</p>
-      <p>positive: {goodReviews / (goodReviews + badReviews + neutralReviews)}%</p>
-    </>
+      <>
+        <StatisticLine text='good' value={goodReviews} />
+        <StatisticLine text='neutral' value={neutralReviews} />
+        <StatisticLine text='bad' value={badReviews} />
+        <StatisticLine text='all' value={goodReviews + neutralReviews + badReviews} />
+        <StatisticLine text='positive' value={goodReviews / (goodReviews + neutralReviews + badReviews)} />
+      </>
   )
 }
 
@@ -63,6 +56,8 @@ const App = () => {
     setNeutral(updatedNeutralReviews)
   }
 
+
+
   return (
     <div>
       <Header
@@ -74,14 +69,7 @@ const App = () => {
       <Header
       text='Statistics'
       />
-      <section className='stats'>
-        <StatisticLine text='good' value={good} />
-        <StatisticLine text='neutral' value={neutral} />
-        <StatisticLine text='bad' value={bad} />
-        <StatisticLine text='all' value={good + neutral + bad} />
-        <StatisticLine text='positive' value={good / (good + neutral + bad)} />
-
-      </section>
+      {!good && !bad && !neutral ? <p>No feedback given</p> : <Statistics goodReviews={good} badReviews={bad} neutralReviews={neutral} />}
     </div>
   )
 }

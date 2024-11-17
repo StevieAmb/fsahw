@@ -13,6 +13,16 @@ const Button = ({handleClick, text}) => {
   )
 }
 
+//conditionally render at top level the UI of the state when no feedback is given,
+//and pull it out of the statistics component.
+
+const StatisticLine = ({text, value}) => {
+  return (
+    <p>{text}: {value}</p>
+  )
+
+}
+
 const Statistics = ({goodReviews, badReviews, neutralReviews}) => {
 
   if( !goodReviews && !badReviews && !neutralReviews) {
@@ -20,7 +30,6 @@ const Statistics = ({goodReviews, badReviews, neutralReviews}) => {
       <p>No feedback given</p>
     )
   }
-
 
   return (
     <>
@@ -65,7 +74,14 @@ const App = () => {
       <Header
       text='Statistics'
       />
-      <Statistics goodReviews={good} badReviews={bad} neutralReviews={neutral} />
+      <section className='stats'>
+        <StatisticLine text='good' value={good} />
+        <StatisticLine text='neutral' value={neutral} />
+        <StatisticLine text='bad' value={bad} />
+        <StatisticLine text='all' value={good + neutral + bad} />
+        <StatisticLine text='positive' value={good + neutral + bad} />
+
+      </section>
     </div>
   )
 }

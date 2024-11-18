@@ -1,6 +1,10 @@
 import React, {useState} from "react"
 
-
+const Header = ({text}) => {
+  return (
+    <h1>{text}</h1>
+  )
+}
 
 const Button = ({handleClick, text}) => {
   return (

@@ -35,9 +35,9 @@ const App = () => {
 
   const handleAnecdoteVoting = () => {
     if(!anecdoteVotes[selected]) {
-      anecdoteVotes[selected] = 1
+      setAnecdoteVotes({...anecdoteVotes, [selected]: 1})
     } else {
-      anecdoteVotes[selected]
+      setAnecdoteVotes({...anecdoteVotes, [selected]: [selected] + 1})
     }
   }
 

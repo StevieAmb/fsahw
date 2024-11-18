@@ -37,17 +37,13 @@ const App = () => {
     if(!anecdoteVotes[selected]) {
       setAnecdoteVotes({...anecdoteVotes, [selected]: 1})
     } else {
-      setAnecdoteVotes({...anecdoteVotes, [selected]: [selected] + 1})
+      setAnecdoteVotes({...anecdoteVotes, [selected]: anecdoteVotes[selected] + 1})
     }
   }
 
-  //There needs to be an object that takes into account the selected anecdote (index)
-  //And then is also able to add the votes as a property of selected.
+  //What I want is, when the property is already in there, increase it. How do I write that?
 
-  //We need to be able to store it in state so that we can pass it down as props.
-  //How do I store the correct property, and then... how do I increase it?
-
-  //So, we need to 
+  {console.log(anecdoteVotes)}
 
   return (
     <div>
@@ -57,7 +53,7 @@ const App = () => {
         text='next anecdote' 
       />
       <Button 
-        handleClick={null} 
+        handleClick={handleAnecdoteVoting} 
         text='vote' 
       />
     </div>

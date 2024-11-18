@@ -24,6 +24,7 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
+  const [anecdoteVotes, setAnecdoteVotes] = useState({})
 
   let getRandomIndex = (array => Math.floor(Math.random() * array.length));
 
@@ -32,11 +33,21 @@ const App = () => {
     setSelected(randomIndex)
   }
 
+  const handleAnecdoteVoting = () => {
+    if(!anecdoteVotes[selected]) {
+      anecdoteVotes[selected] = 1
+    } else {
+      anecdoteVotes[selected]
+    }
+  }
+
   //There needs to be an object that takes into account the selected anecdote (index)
   //And then is also able to add the votes as a property of selected.
 
   //We need to be able to store it in state so that we can pass it down as props.
   //How do I store the correct property, and then... how do I increase it?
+
+  //So, we need to 
 
   return (
     <div>

@@ -8,8 +8,14 @@ const Button = ({handleClick, text}) => {
   )
 }
 
-const VoteDisplay = () => {
+const VoteDisplay = ({numOfVotes}) => {
+  if(!numOfVotes) {
+    <p>anecdote has no votes yet</p>
+  }
 
+  return (
+    <p>has {numOfVotes} votes</p>
+  )
 }
 
 

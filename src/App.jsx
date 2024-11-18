@@ -8,6 +8,10 @@ const Button = ({handleClick, text}) => {
   )
 }
 
+const VoteDisplay = () => {
+
+}
+
 
 
 const App = () => {
@@ -37,13 +41,11 @@ const App = () => {
     if(!anecdoteVotes[selected]) {
       setAnecdoteVotes({...anecdoteVotes, [selected]: 1})
     } else {
-      setAnecdoteVotes({...anecdoteVotes, [selected]: anecdoteVotes[selected] + 1})
+      setAnecdoteVotes({...anecdoteVotes, [selected]: anecdoteVotes[selected]++})
     }
   }
 
   //What I want is, when the property is already in there, increase it. How do I write that?
-
-  {console.log(anecdoteVotes)}
 
   return (
     <div>

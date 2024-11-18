@@ -10,7 +10,9 @@ const Button = ({handleClick, text}) => {
 
 const VoteDisplay = ({numOfVotes}) => {
   if(!numOfVotes) {
-    <p>anecdote has no votes yet</p>
+    return (
+      <p>anecdote has no votes yet</p>
+    )
   }
 
   return (
@@ -52,10 +54,12 @@ const App = () => {
   }
 
   //What I want is, when the property is already in there, increase it. How do I write that?
+  console.log(anecdoteVotes)
 
   return (
     <div>
       <p>{anecdotes[selected]}</p>
+      <VoteDisplay numOfVotes={anecdoteVotes[selected] ? anecdoteVotes[selected] : null} />
       <Button 
         handleClick={handleAnecdoteSelection} 
         text='next anecdote' 

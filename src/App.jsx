@@ -53,9 +53,6 @@ const App = () => {
     }
   }
 
-  //What I want is, when the property is already in there, increase it. How do I write that?
-  console.log(anecdoteVotes)
-
   return (
     <div>
       <p>{anecdotes[selected]}</p>

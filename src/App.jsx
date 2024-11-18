@@ -59,6 +59,7 @@ const App = () => {
 
   return (
     <div>
+      <Header text='Anecdote of the day' />
       <p>{anecdotes[selected]}</p>
       <VoteDisplay numOfVotes={anecdoteVotes[selected] ? anecdoteVotes[selected] : null} />
       <Button 

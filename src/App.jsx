@@ -49,7 +49,7 @@ const App = () => {
     if(!anecdoteVotes[selected]) {
       setAnecdoteVotes({...anecdoteVotes, [selected]: 1})
     } else {
-      setAnecdoteVotes({...anecdoteVotes, [selected]: anecdoteVotes[selected]++})
+      setAnecdoteVotes({...anecdoteVotes, [selected]: anecdoteVotes[selected] + 1})
     }
   }
 

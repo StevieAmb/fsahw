@@ -75,9 +75,18 @@ const App = () => {
 
   let anecdoteKeys = Object.keys(anecdoteVotes)
 
-  console.log('keys', anecdoteKeys)
-
-  
+  const getAnecdoteWithHighestVote = () => {
+    let highestKey;
+    for(let i = 0; i < anecdoteKeys.length; i++) {
+      let highest = 0
+      if(anecdoteVotes[anecdoteKeys[i]] > highest) {
+        console.log(anecdoteVotes[anecdoteKeys[i]])
+        highest = anecdoteVotes[anecdoteKeys[i]]
+        highestKey = anecdoteKeys[i]
+      }
+    }
+    return highestKey;
+  }
 
   return (
     <div>

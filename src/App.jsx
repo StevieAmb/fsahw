@@ -24,6 +24,12 @@ const VoteDisplay = ({numOfVotes}) => {
   )
 }
 
+const PopularAnecdoteDisplay = ({anecdotes, anecdoteVotes}) => {
+  return (
+    <p>I'm popular</p>
+  )
+}
+
 
 
 const App = () => {
@@ -56,6 +62,18 @@ const App = () => {
       setAnecdoteVotes({...anecdoteVotes, [selected]: anecdoteVotes[selected] + 1})
     }
   }
+
+
+
+  //To find the anecdote with the most popular vote, I need to look through the object,
+  //And find the property that holds the highest value
+  //So I need to get the keys of the object (object.keys), and iterate through 
+  //each one within the object.
+  //Then I use that same property and then add it to the anecdote list,
+  //In order to pull out the saying.
+  //Where do I put the function?
+
+  
 
   return (
     <div>

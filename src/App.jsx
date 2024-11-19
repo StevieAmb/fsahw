@@ -73,6 +73,10 @@ const App = () => {
   //In order to pull out the saying.
   //Where do I put the function?
 
+  let anecdoteKeys = Object.keys(anecdoteVotes)
+
+  console.log('keys', anecdoteKeys)
+
   
 
   return (

@@ -70,6 +70,7 @@ const App = () => {
         handleClick={handleAnecdoteVoting} 
         text='vote' 
       />
+      <Header text='Anecdote with the most votes' />
     </div>
   )
 }

@@ -24,13 +24,11 @@ const VoteDisplay = ({numOfVotes}) => {
   )
 }
 
-const PopularAnecdoteDisplay = ({anecdotes, anecdoteVotes}) => {
+const PopularAnecdoteDisplay = ({winningAnecdote}) => {
   return (
-    <p>I'm popular</p>
+    <p>{winningAnecdote}</p>
   )
 }
-
-
 
 const App = () => {
   
@@ -47,7 +45,7 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
   const [anecdoteVotes, setAnecdoteVotes] = useState({})
-  const [highestVotedAnecdote, setHighestVotedAnecdote] = useState()
+  const [highestVotedAnecdote, setHighestVotedAnecdote] = useState('')
 
   let getRandomIndex = (array => Math.floor(Math.random() * array.length));
 
@@ -57,37 +55,81 @@ const App = () => {
   }
 
   const handleAnecdoteVoting = () => {
-    if(!anecdoteVotes[selected]) {
-      setAnecdoteVotes({...anecdoteVotes, [selected]: 1})
-    } else {
-      setAnecdoteVotes({...anecdoteVotes, [selected]: anecdoteVotes[selected] + 1})
-    }
-  }
+    // Calculate the updated votes
+    const updatedVoteCount = anecdoteVotes[selected]
+      ? anecdoteVotes[selected] + 1
+      : 1;
+  
+    const updatedVotes = {
+      ...anecdoteVotes,
+      [selected]: updatedVoteCount,
+    };
+  
+    // Update the state
+    setAnecdoteVotes(updatedVotes);
 
+    console.log('voting', anecdoteVotes)
 
-
-  //To find the anecdote with the most popular vote, I need to look through the object,
-  //And find the property that holds the highest value
-  //So I need to get the keys of the object (object.keys), and iterate through 
-  //each one within the object.
-  //Then I use that same property and then add it to the anecdote list,
-  //In order to pull out the saying.
-  //Where do I put the function?
-
-  let anecdoteKeys = Object.keys(anecdoteVotes)
-
-  const getAnecdoteWithHighestVote = () => {
-    let highestKey;
-    for(let i = 0; i < anecdoteKeys.length; i++) {
-      let highest = 0
-      if(anecdoteVotes[anecdoteKeys[i]] > highest) {
-        console.log(anecdoteVotes[anecdoteKeys[i]])
-        highest = anecdoteVotes[anecdoteKeys[i]]
-        highestKey = anecdoteKeys[i]
+  
+    // Determine the highest-voted anecdote using the updated state
+    getAnecdoteWithHighestVote(updatedVotes);
+  };
+  
+  const getAnecdoteWithHighestVote = (updatedVotes) => {
+    let highestVote = 0;
+    let highestKey = null;
+  
+    Object.keys(updatedVotes).forEach((key) => {
+      if (updatedVotes[key] > highestVote) {
+        highestVote = updatedVotes[key];
+        highestKey = key;
       }
+    });
+
+    console.log('rating', anecdoteVotes)
+  
+    if (highestKey !== null) {
+      setHighestVotedAnecdote(anecdotes[highestKey]);
     }
-    setHighestVotedAnecdote(highestKey);
-  }
+  };
+
+  // const handleAnecdoteVoting = () => { //doesn't set a vote until two button clicks
+  //   const updatedVoteCount = anecdoteVotes[selected]
+  //   ? anecdoteVotes[selected] + 1
+  //   : 1;
+
+  // const updatedVotes = {
+  //   ...anecdoteVotes,
+  //   [selected]: updatedVoteCount,
+  // };
+
+  // setAnecdoteVotes(updatedVotes)
+
+  //   // if(!anecdoteVotes[selected]) {
+  //   //   setAnecdoteVotes({...anecdoteVotes, [selected] : 1})
+  //   // } else {
+  //   //   const updatedVote = anecdoteVotes[selected] + 2
+  //   //   setAnecdoteVotes({...anecdoteVotes, [selected]: updatedVote})
+  //   // }
+  //   console.log('voting', anecdoteVotes)
+  //     getAnecdoteWithHighestVote()
+  // }
+
+  // let anecdoteKeys = Object.keys(anecdoteVotes)
+
+  // const getAnecdoteWithHighestVote = () => { //needs to be called on a specific tme, user input
+  //   let highestKey;
+  //   for(let i = 0; i < anecdoteKeys.length; i++) {
+  //     let highest = 0
+  //     if(anecdoteVotes[anecdoteKeys[i]] > highest) {
+  //       console.log(anecdoteVotes[anecdoteKeys[i]])
+  //       highest = anecdoteVotes[anecdoteKeys[i]]
+  //       highestKey = anecdoteKeys[i]
+  //     }
+  //   }
+  //   setHighestVotedAnecdote(anecdotes[highestKey]);
+  //   console.log('rating', anecdoteVotes)
+  // }
 
 
   return (
@@ -104,6 +146,7 @@ const App = () => {
         text='vote' 
       />
       <Header text='Anecdote with the most votes' />
+      <PopularAnecdoteDisplay anecdotes={anecdotes} winningAnecdote={highestVotedAnecdote} />
     </div>
   )
 }

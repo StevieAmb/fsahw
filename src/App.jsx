@@ -47,6 +47,7 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
   const [anecdoteVotes, setAnecdoteVotes] = useState({})
+  const [highestVotedAnecdote, setHighestVotedAnecdote] = useState()
 
   let getRandomIndex = (array => Math.floor(Math.random() * array.length));
 
@@ -85,8 +86,9 @@ const App = () => {
         highestKey = anecdoteKeys[i]
       }
     }
-    return highestKey;
+    setHighestVotedAnecdote(highestKey);
   }
+
 
   return (
     <div>

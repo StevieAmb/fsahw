@@ -68,8 +68,6 @@ const App = () => {
     // Update the state
     setAnecdoteVotes(updatedVotes);
 
-    console.log('voting', anecdoteVotes)
-
   
     // Determine the highest-voted anecdote using the updated state
     getAnecdoteWithHighestVote(updatedVotes);
@@ -85,8 +83,6 @@ const App = () => {
         highestKey = key;
       }
     });
-
-    console.log('rating', anecdoteVotes)
   
     if (highestKey !== null) {
       setHighestVotedAnecdote(anecdotes[highestKey]);

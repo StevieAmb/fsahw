@@ -149,7 +149,7 @@ import React, {useState} from "react"
 
 // export default App
 
-const Note = ({ note }) => {
+const Note = ({ note, id }) => {
   return (
     <li>{note.content}</li>
   )
@@ -162,9 +162,10 @@ const App = ({ notes }) => {
       <h1>Notes</h1>
       <ul>
         {notes.map(note => 
-          <li key={note.id}>
-            {note.content}
-          </li>
+        <Note 
+          key={note.id} 
+          note={note} 
+        />
         )}
       </ul>
     </div>

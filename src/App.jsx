@@ -149,13 +149,7 @@ import React, {useState} from "react"
 
 // export default App
 
-import Note from "./Note"
-
-const Note = ({ note, id }) => {
-  return (
-    <li>{note.content}</li>
-  )
-}
+import Note from "./components/Note"
 
 const App = ({ notes }) => {
 

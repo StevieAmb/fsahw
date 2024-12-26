@@ -149,21 +149,73 @@ import React, {useState} from "react"
 
 // export default App
 
-import Note from "./components/Note"
+// import Note from "./components/Note"
 
-const App = ({ notes }) => {
+// const App = ({ notes }) => {
+
+//   return (
+//     <div>
+//       <h1>Notes</h1>
+//       <ul>
+//         {notes.map(note => 
+//         <Note 
+//           key={note.id} 
+//           note={note} 
+//         />
+//         )}
+//       </ul>
+//     </div>
+//   )
+// }
+
+// export default App
+
+const Course = ({course }) => {
+  return (
+    <h1>{course.name}</h1>
+  )
+}
+
+const Parts = ({coursePart, courseExercise}) => {
+  return (
+    <p>{coursePart} {courseExercise}</p>
+  )
+}
+
+const App = () => {
+  const course = {
+    name: 'Half Stack application development',
+    id: 1,
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10,
+        id: 1
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7,
+        id: 2
+      },
+      {
+        name: 'State of a component',
+        exercises: 14,
+        id: 3
+      }
+    ]
+  }
+
+  const courseParts = course.parts.map(part => {
+    return (
+      <Parts coursePart={part.name} courseExercise={part.exercises}/>
+    )
+  })
+
 
   return (
     <div>
-      <h1>Notes</h1>
-      <ul>
-        {notes.map(note => 
-        <Note 
-          key={note.id} 
-          note={note} 
-        />
-        )}
-      </ul>
+      <Course course={course} />
+      {courseParts}
     </div>
   )
 }

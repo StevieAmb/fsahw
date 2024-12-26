@@ -182,6 +182,12 @@ const Parts = ({coursePart, courseExercise}) => {
   )
 }
 
+const TotalView = ({ total }) => {
+  return (
+    <h3>Total : {total}</h3>
+  )
+}
+
 const App = () => {
   const course = {
     name: 'Half Stack application development',
@@ -201,21 +207,32 @@ const App = () => {
         name: 'State of a component',
         exercises: 14,
         id: 3
+      },
+      {
+        name: 'Redux',
+        exercises: 11,
+        id: 4
       }
     ]
   }
 
   const courseParts = course.parts.map(part => {
     return (
-      <Parts coursePart={part.name} courseExercise={part.exercises}/>
+      <Parts key={part.id} coursePart={part.name} courseExercise={part.exercises}/>
     )
   })
 
+  const totalExercises = course.parts.reduce((acc, part) => {
+    return acc + part.exercises
+  }, 0)
+
+  console.log(totalExercises)
 
   return (
     <div>
       <Course course={course} />
       {courseParts}
+      <TotalView total={totalExercises} />
     </div>
   )
 }

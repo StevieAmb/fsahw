@@ -184,7 +184,12 @@ const App = (props) => {
     <div>
       <h1>Notes</h1>
       <ul>
-      {notes.map(note => 
+      <div>
+        <button onClick={() => setShowAll(!showAll)}>
+          show {showAll ? 'important' : 'all' }
+        </button>
+      </div>  
+      {notesToShow.map(note => 
         <Note 
           key={note.id} 
           note={note} 

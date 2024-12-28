@@ -209,8 +209,11 @@ import React, {useState} from "react"
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', number: '303-555-5555' }
-  ]) 
+    { name: 'Arto Hellas', number: '040-123456' },
+    { name: 'Ada Lovelace', number: '39-44-5323523' },
+    { name: 'Dan Abramov', number: '12-43-234345' },
+    { name: 'Mary Poppendieck', number: '39-23-6423122' }
+  ])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
 
@@ -253,7 +256,6 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      {allNames}
       <form onSubmit={addNameAndNumber}>
         <div>
           name: <input value={newName} onChange={handleNameAddition}/>
@@ -266,8 +268,9 @@ const App = () => {
           <button type="submit">add</button>
         </div>
       </form>
+      <h2>Filter Numbers</h2>
       <h2>Numbers</h2>
-      ...
+      {allNames}
     </div>
   )
 

@@ -171,15 +171,22 @@ import React, {useState} from "react"
 // export default App
 
 const Course = ({ course }) => {
-    const courseParts = course.parts.map(part => {
+    
+  const courseParts = course.parts.map(part => {
     return (
       <Parts key={part.id} coursePart={part.name} courseExercise={part.exercises}/>
     )
   })
+
+  const totalExercises = course.parts.reduce((acc, part) => {
+    return acc + part.exercises
+  }, 0)
+
   return (
     <>
       <h1>{course.name}</h1>
       {courseParts}
+      <TotalView total={totalExercises} />
     </>
   )
 }
@@ -249,16 +256,11 @@ const listCourses = course.map(courseName => {
   )
 })
 
-  // const totalExercises = course.parts.reduce((acc, part) => {
-  //   return acc + part.exercises
-  // }, 0)
 
 
   return (
     <div>
       {listCourses}
-      {/* {courseParts}
-      <TotalView total={totalExercises} /> */}
     </div>
   )
 }

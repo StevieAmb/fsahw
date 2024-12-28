@@ -216,6 +216,7 @@ const App = () => {
   ])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
+  const [userNameSearch, setUserNameSearch] = useState('')
 
   const addNameAndNumber = (event) => {
     event.preventDefault()
@@ -234,9 +235,6 @@ const App = () => {
     findDuplicateName ? alert(`${newNameObject.name} is already added to the phonebook!`) : setPersons(persons.concat(newNameObject))
   }
 
-  //It needs to find the name in the array, and then if the
-  //return of the find is true, you can alert that the name is already in the duplicate
-
   const handleNameAddition = (event) => {
     setNewName(event.target.value)
   }
@@ -247,11 +245,16 @@ const App = () => {
 
   const allNames = persons.map(person => {
     return (
-      <ul key={person.id + 1}>
+      <ul key={person.name}>
         <li>{person.name} {person.number}</li>
       </ul>
     )
   })
+
+  const filteredNames = handleUserNameSearch()
+  console.log(filteredNames)
+
+  // const filterNames = persons.filter()
 
   return (
     <div>
@@ -261,7 +264,7 @@ const App = () => {
           name: <input value={newName} onChange={handleNameAddition}/>
         </div>
         <div>
-          number: <input value={newNumber} onChange={handleNumberAddition}/>
+          number: <input value={userNameSearch} onChange={handleNumberAddition}/>
         </div>
         <p>debug: {newNumber}</p>
         <div>
@@ -269,8 +272,10 @@ const App = () => {
         </div>
       </form>
       <h2>Filter Numbers</h2>
+        <div>
+          {/* search for a name with: <input value={newNumber} onChange={handleUserNameSearch}/> */}
+        </div>
       <h2>Numbers</h2>
-      {allNames}
     </div>
   )
 

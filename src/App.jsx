@@ -170,9 +170,17 @@ import React, {useState} from "react"
 
 // export default App
 
-const Course = ({course }) => {
+const Course = ({ course }) => {
+    const courseParts = course.parts.map(part => {
+    return (
+      <Parts key={part.id} coursePart={part.name} courseExercise={part.exercises}/>
+    )
+  })
   return (
-    <h1>{course.name}</h1>
+    <>
+      <h1>{course.name}</h1>
+      {courseParts}
+    </>
   )
 }
 
@@ -189,50 +197,68 @@ const TotalView = ({ total }) => {
 }
 
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    id: 1,
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10,
-        id: 1
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7,
-        id: 2
-      },
-      {
-        name: 'State of a component',
-        exercises: 14,
-        id: 3
-      },
-      {
-        name: 'Redux',
-        exercises: 11,
-        id: 4
-      }
-    ]
-  }
+  
+  const course = [
+    {
+      name: 'Half Stack application development',
+      id: 1,
+      parts: [
+        {
+          name: 'Fundamentals of React',
+          exercises: 10,
+          id: 1
+        },
+        {
+          name: 'Using props to pass data',
+          exercises: 7,
+          id: 2
+        },
+        {
+          name: 'State of a component',
+          exercises: 14,
+          id: 3
+        },
+        {
+          name: 'Redux',
+          exercises: 11,
+          id: 4
+        }
+      ]
+    },
+    {
+      name: 'Node.js',
+      id: 2,
+      parts: [
+        {
+          name: 'Routing',
+          exercises: 3,
+          id: 1
+        },
+        {
+          name: 'Middlewares',
+          exercises: 7,
+          id: 2
+        }
+      ]
+    }
+  ]
 
-  const courseParts = course.parts.map(part => {
-    return (
-      <Parts key={part.id} coursePart={part.name} courseExercise={part.exercises}/>
-    )
-  })
+const listCourses = course.map(courseName => {
+  return (
+    <Course key={course.id} course={courseName} />
+  )
+})
 
-  const totalExercises = course.parts.reduce((acc, part) => {
-    return acc + part.exercises
-  }, 0)
+  // const totalExercises = course.parts.reduce((acc, part) => {
+  //   return acc + part.exercises
+  // }, 0)
 
-  console.log(totalExercises)
 
   return (
     <div>
-      <Course course={course} />
-      {courseParts}
-      <TotalView total={totalExercises} />
+      {listCourses}
+      {/* {courseParts}
+      <TotalView total={totalExercises} /> */}
     </div>
   )
 }

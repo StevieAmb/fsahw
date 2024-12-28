@@ -159,6 +159,10 @@ const App = (props) => {
   ) 
   const [showAll, setShowAll] = useState(true)
 
+  const notesToShow = showAll
+  ? notes
+  : notes.filter(note => note.important === true)
+
   const addNote = (event) => {
     event.preventDefault()
     const noteObject = {

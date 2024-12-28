@@ -220,12 +220,11 @@ const App = () => {
       id: persons.length + 1
     }
 
-    alertNameDuplicate()
-    setPersons(persons.concat(newNameObject))
+    alertNameDuplicate(newNameObject)
     setNewName('')
   }
 
-  const alertNameDuplicate = () => {
+  const alertNameDuplicate = (newNameObject) => {
     const findDuplicateName = persons.find(person => person.name === newNameObject.name)
     findDuplicateName ? alert(`${newNameObject.name} is already added to the phonebook!`) : setPersons(persons.concat(newNameObject))
   }

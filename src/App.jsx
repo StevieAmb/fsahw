@@ -220,9 +220,18 @@ const App = () => {
       id: persons.length + 1
     }
 
+    alertNameDuplicate()
     setPersons(persons.concat(newNameObject))
     setNewName('')
   }
+
+  const alertNameDuplicate = () => {
+    const findDuplicateName = persons.find(person => person.name === newNameObject.name)
+    findDuplicateName ? alert(`${newNameObject.name} is already added to the phonebook!`) : setPersons(persons.concat(newNameObject))
+  }
+
+  //It needs to find the name in the array, and then if the
+  //return of the find is true, you can alert that the name is already in the duplicate
 
   const handleNameAddition = (event) => {
     setNewName(event.target.value)

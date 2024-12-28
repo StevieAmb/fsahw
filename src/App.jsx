@@ -207,8 +207,6 @@ import React, {useState} from "react"
 
 // export default App
 
-import { useState } from 'react'
-
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas' }
@@ -223,6 +221,7 @@ const App = () => {
           name: <input />
         </div>
         <div>
+        <div>debug: {newName}</div>
           <button type="submit">add</button>
         </div>
       </form>

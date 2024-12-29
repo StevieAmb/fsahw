@@ -243,9 +243,10 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
-  
+  const phoneList = !userNameSearch ? persons : persons.filter(person => person.name.includes(userNameSearch))
 
-  const allNames = persons.map(person => {
+
+  const allNames = phoneList.map(person => {
     return (
       <ul key={person.name}>
         <li>{person.name} {person.number}</li>
@@ -253,8 +254,7 @@ const App = () => {
     )
   })
 
-  const filteredNames = handleUserNameSearch()
-  console.log(filteredNames)
+
 
   //The filter has to go on an onChange in the input field for the search bar
   //Then, we can have a variable that takes the value ternary that checks
@@ -262,6 +262,7 @@ const App = () => {
   //If there is not, then it's going to return all of the persons
   //If there is, it's going to filter iterate and filter the person's name
   //That contains the thing in the search field
+  //Then we'll iterate over the variable instead
   //Also add error handling if no name comes up for the search
 
   //Maybe the error handling is like, the variable && the error message (we can check and see if 
@@ -285,9 +286,10 @@ const App = () => {
       </form>
       <h2>Filter Numbers</h2>
         <div>
-          {/* search for a name with: <input value={newNumber} onChange={handleUserNameSearch}/> */}
+          search for a name with: <input value={userNameSearch} onChange={() => setUserNameSearch(event.target.value)}/>
         </div>
       <h2>Numbers</h2>
+      {allNames}
     </div>
   )
 

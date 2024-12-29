@@ -289,7 +289,7 @@ const App = () => {
           search for a name with: <input value={userNameSearch} onChange={() => setUserNameSearch(event.target.value)}/>
         </div>
       <h2>Numbers</h2>
-      {allNames}
+      {allNames && (<p>There are no names that have those letters</p>)}
     </div>
   )
 

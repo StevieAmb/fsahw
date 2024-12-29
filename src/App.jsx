@@ -277,7 +277,7 @@ const App = () => {
           name: <input value={newName} onChange={handleNameAddition}/>
         </div>
         <div>
-          number: <input value={userNameSearch} onChange={handleNumberAddition}/>
+          number: <input value={newNumber} onChange={handleNumberAddition}/>
         </div>
         <p>debug: {newNumber}</p>
         <div>
@@ -289,7 +289,7 @@ const App = () => {
           search for a name with: <input value={userNameSearch} onChange={() => setUserNameSearch(event.target.value)}/>
         </div>
       <h2>Numbers</h2>
-      {allNames && (<p>There are no names that have those letters</p>)}
+      {{allNames} && <p>There are no names that show up with that search</p>}
     </div>
   )
 

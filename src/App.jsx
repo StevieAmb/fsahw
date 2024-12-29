@@ -243,7 +243,7 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
-  const phoneList = !userNameSearch ? persons : persons.filter(person => person.name.toLowerCase().includes(userNameSearch.toLowerCase))
+  const phoneList = !userNameSearch ? persons : persons.filter(person => person.name.toLowerCase().includes(userNameSearch.toLowerCase()))
 
 
   const allNames = phoneList.map(person => {

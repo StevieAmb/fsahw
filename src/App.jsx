@@ -289,10 +289,9 @@ const App = () => {
           search for a name with: <input value={userNameSearch} onChange={() => setUserNameSearch(event.target.value)}/>
         </div>
       <h2>Numbers</h2>
-      {{allNames} && <p>There are no names that show up with that search</p>}
+      {allNames}
     </div>
   )
-
 }
 
 export default App

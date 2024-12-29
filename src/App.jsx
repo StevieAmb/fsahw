@@ -206,6 +206,21 @@ import React, {useState} from "react"
 // }
 
 // export default App
+const PersonForm = ({addNameAndNumber, newName, handleNameAddition, newNumber, handleNumberAddition }) => {
+  return (
+    <form onSubmit={addNameAndNumber}>
+      <div>
+        name: <input value={newName} onChange={handleNameAddition}/>
+      </div>
+      <div>
+        number: <input value={newNumber} onChange={handleNumberAddition}/>
+      </div>
+      <div>
+        <button type="submit">add</button>
+      </div>
+    </form>
+  )
+}
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -235,7 +250,7 @@ const App = () => {
     findDuplicateName ? alert(`${newNameObject.name} is already added to the phonebook!`) : setPersons(persons.concat(newNameObject))
   }
 
-  const handleNameAddition = (event) => {
+  const handleNameAddition = (event) => { //refactor, check value type (number or string) to see where to add the value?
     setNewName(event.target.value)
   }
 
@@ -255,35 +270,16 @@ const App = () => {
   })
 
 
-
-  //The filter has to go on an onChange in the input field for the search bar
-  //Then, we can have a variable that takes the value ternary that checks
-  //if there is a value in the user search field
-  //If there is not, then it's going to return all of the persons
-  //If there is, it's going to filter iterate and filter the person's name
-  //That contains the thing in the search field
-  //Then we'll iterate over the variable instead
-  //Also add error handling if no name comes up for the search
-
-  //Maybe the error handling is like, the variable && the error message (we can check and see if 
-  //that works)
-
-
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addNameAndNumber}>
-        <div>
-          name: <input value={newName} onChange={handleNameAddition}/>
-        </div>
-        <div>
-          number: <input value={newNumber} onChange={handleNumberAddition}/>
-        </div>
-        <p>debug: {newNumber}</p>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
+      <PersonForm 
+        addNameAndNumber={addNameAndNumber} 
+        newName={newName} 
+        newNumber={newNumber} 
+        handleNameAddition={handleNameAddition}
+        handleNumberAddition={handleNumberAddition}
+      />
       <h2>Filter Numbers</h2>
         <div>
           search for a name with: <input value={userNameSearch} onChange={() => setUserNameSearch(event.target.value)}/>

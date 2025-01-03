@@ -232,9 +232,9 @@ const Filter = ({ userNameSearch, setUserNameSearch}) => {
   )
 }
 
-const List = ({key, person, info2}) => {
+const List = ({id, person, number}) => {
   return (
-    <ul key={key}>
+    <ul>
       <li>{person} {number}</li>
     </ul>
   )
@@ -281,9 +281,11 @@ const App = () => {
 
   const allNames = phoneList.map(person => {
     return (
-      <ul key={person.name}>
-        <li>{person.name} {person.number}</li>
-      </ul>
+      <List 
+        key={person.name}
+        person={person.name}
+        number={person.number}
+      />
     )
   })
 

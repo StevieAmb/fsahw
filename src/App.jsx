@@ -222,6 +222,16 @@ const PersonForm = ({addNameAndNumber, newName, handleNameAddition, newNumber, h
   )
 }
 
+const Filter = ({ userNameSearch, setUserNameSearch}) => {
+  return (
+    <>
+     <div>
+        search for a name with: <input value={userNameSearch} onChange={(event) => setUserNameSearch(event.target.value)}/>
+      </div>
+    </>
+  )
+}
+
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', number: '040-123456' },
@@ -282,7 +292,7 @@ const App = () => {
       />
       <h2>Filter Numbers</h2>
         <div>
-          search for a name with: <input value={userNameSearch} onChange={() => setUserNameSearch(event.target.value)}/>
+          search for a name with: <input value={userNameSearch} onChange={(event) => setUserNameSearch(event.target.value)}/>
         </div>
       <h2>Numbers</h2>
       {allNames}

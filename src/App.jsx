@@ -232,6 +232,14 @@ const Filter = ({ userNameSearch, setUserNameSearch}) => {
   )
 }
 
+const List = ({key, person, info2}) => {
+  return (
+    <ul key={key}>
+      <li>{person} {number}</li>
+    </ul>
+  )
+}
+
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', number: '040-123456' },

@@ -291,9 +291,10 @@ const App = () => {
         handleNumberAddition={handleNumberAddition}
       />
       <h2>Filter Numbers</h2>
-        <div>
-          search for a name with: <input value={userNameSearch} onChange={(event) => setUserNameSearch(event.target.value)}/>
-        </div>
+      <Filter 
+        userNameSearch={userNameSearch}
+        setUserNameSearch={setUserNameSearch}
+      />
       <h2>Numbers</h2>
       {allNames}
     </div>

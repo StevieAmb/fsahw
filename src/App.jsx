@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import axios from "axios"
 
 // const Header = ({text}) => {
 //   return (
@@ -158,6 +159,17 @@ const App = (props) => {
     'a new note...'
   ) 
   const [showAll, setShowAll] = useState(true)
+  
+  useEffect(() => {
+    console.log('effect')
+    axios
+      .get('http://localhost:3001/notes')
+      .then(response => {
+        console.log('promise fulfilled')
+        setNotes(response.data)
+      })
+  }, [])
+  console.log('render', notes.length, 'notes')
 
   const notesToShow = showAll
   ? notes

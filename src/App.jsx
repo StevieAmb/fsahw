@@ -150,182 +150,182 @@ import axios from "axios"
 
 // export default App
 
-import Note from "./components/Note"
-
-const App = () => {
-
-  const [notes, setNotes] = useState([])
-  const [newNote, setNewNote] = useState(
-    'a new note...'
-  ) 
-  const [showAll, setShowAll] = useState(true)
-  
-  const hook = () => {
-    console.log('effect')
-    axios
-      .get('http://localhost:3001/notes')
-      .then(response => {
-        console.log('promise fulfilled')
-        setNotes(response.data)
-      })
-  }
-  
-  useEffect(hook, [])
-
-  const notesToShow = showAll
-  ? notes
-  : notes.filter(note => note.important === true)
-
-  const addNote = (event) => {
-    event.preventDefault()
-    const noteObject = {
-      content: newNote,
-      important: Math.random() > 0.5,
-      id: String(notes.length + 1),
-    }
-  
-    setNotes(notes.concat(noteObject))
-    setNewNote('')
-  }
-
-  const handleNoteChange = (event) => {
-    console.log(event.target.value)
-    setNewNote(event.target.value)
-  }
-
-  return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-      <div>
-        <button onClick={() => setShowAll(!showAll)}>
-          show {showAll ? 'important' : 'all' }
-        </button>
-      </div>  
-      {notesToShow.map(note => 
-        <Note 
-          key={note.id} 
-          note={note} 
-        />
-      )}
-      </ul>
-      <form onSubmit={addNote}>
-        <label>add note</label>
-        <input value={newNote} onChange={handleNoteChange}/>
-        <button type="submit">save</button>
-      </form>  
-    </div>
-  )
-}
-
-export default App
-
-// const PersonForm = ({addNameAndNumber, newName, handleNameAddition, newNumber, handleNumberAddition }) => {
-//   return (
-//     <form onSubmit={addNameAndNumber}>
-//       <div>
-//         name: <input value={newName} onChange={handleNameAddition}/>
-//       </div>
-//       <div>
-//         number: <input value={newNumber} onChange={handleNumberAddition}/>
-//       </div>
-//       <div>
-//         <button type="submit">add</button>
-//       </div>
-//     </form>
-//   )
-// }
-
-// const Filter = ({ userNameSearch, setUserNameSearch}) => {
-//   return (
-//     <>
-//      <div>
-//         search for a name with: <input value={userNameSearch} onChange={(event) => setUserNameSearch(event.target.value)}/>
-//       </div>
-//     </>
-//   )
-// }
-
-// const List = ({id, person, number}) => {
-//   return (
-//     <ul>
-//       <li>{person} {number}</li>
-//     </ul>
-//   )
-// }
+// import Note from "./components/Note"
 
 // const App = () => {
-//   const [persons, setPersons] = useState([
-//     { name: 'Arto Hellas', number: '040-123456' },
-//     { name: 'Ada Lovelace', number: '39-44-5323523' },
-//     { name: 'Dan Abramov', number: '12-43-234345' },
-//     { name: 'Mary Poppendieck', number: '39-23-6423122' }
-//   ])
-//   const [newName, setNewName] = useState('')
-//   const [newNumber, setNewNumber] = useState('')
-//   const [userNameSearch, setUserNameSearch] = useState('')
 
-//   const addNameAndNumber = (event) => {
+//   const [notes, setNotes] = useState([])
+//   const [newNote, setNewNote] = useState(
+//     'a new note...'
+//   ) 
+//   const [showAll, setShowAll] = useState(true)
+  
+//   const hook = () => {
+//     console.log('effect')
+//     axios
+//       .get('http://localhost:3001/notes')
+//       .then(response => {
+//         console.log('promise fulfilled')
+//         setNotes(response.data)
+//       })
+//   }
+  
+//   useEffect(hook, [])
+
+//   const notesToShow = showAll
+//   ? notes
+//   : notes.filter(note => note.important === true)
+
+//   const addNote = (event) => {
 //     event.preventDefault()
-//     const newNameObject = {
-//       name: newName,
-//       number: newNumber,
-//       id: persons.length + 1
+//     const noteObject = {
+//       content: newNote,
+//       important: Math.random() > 0.5,
+//       id: String(notes.length + 1),
 //     }
-
-//     alertNameDuplicate(newNameObject)
-//     setNewName('')
+  
+//     setNotes(notes.concat(noteObject))
+//     setNewNote('')
 //   }
 
-//   const alertNameDuplicate = (newNameObject) => {
-//     const findDuplicateName = persons.find(person => person.name === newNameObject.name)
-//     findDuplicateName ? alert(`${newNameObject.name} is already added to the phonebook!`) : setPersons(persons.concat(newNameObject))
+//   const handleNoteChange = (event) => {
+//     console.log(event.target.value)
+//     setNewNote(event.target.value)
 //   }
-
-//   const handleNameAddition = (event) => { //refactor, check value type (number or string) to see where to add the value?
-//     setNewName(event.target.value)
-//   }
-
-//   const handleNumberAddition = (event) => {
-//     setNewNumber(event.target.value)
-//   }
-
-//   const phoneList = !userNameSearch ? persons : persons.filter(person => person.name.toLowerCase().includes(userNameSearch.toLowerCase()))
-
-
-//   const allNames = phoneList.map(person => {
-//     return (
-//       <List 
-//         key={person.name}
-//         person={person.name}
-//         number={person.number}
-//       />
-//     )
-//   })
-
 
 //   return (
 //     <div>
-//       <h2>Phonebook</h2>
-//       <PersonForm 
-//         addNameAndNumber={addNameAndNumber} 
-//         newName={newName} 
-//         newNumber={newNumber} 
-//         handleNameAddition={handleNameAddition}
-//         handleNumberAddition={handleNumberAddition}
-//       />
-//       <h2>Filter Numbers</h2>
-//       <Filter 
-//         userNameSearch={userNameSearch}
-//         setUserNameSearch={setUserNameSearch}
-//       />
-//       <h2>Numbers</h2>
-//       {allNames}
+//       <h1>Notes</h1>
+//       <ul>
+//       <div>
+//         <button onClick={() => setShowAll(!showAll)}>
+//           show {showAll ? 'important' : 'all' }
+//         </button>
+//       </div>  
+//       {notesToShow.map(note => 
+//         <Note 
+//           key={note.id} 
+//           note={note} 
+//         />
+//       )}
+//       </ul>
+//       <form onSubmit={addNote}>
+//         <label>add note</label>
+//         <input value={newNote} onChange={handleNoteChange}/>
+//         <button type="submit">save</button>
+//       </form>  
 //     </div>
 //   )
 // }
 
 // export default App
+
+const PersonForm = ({addNameAndNumber, newName, handleNameAddition, newNumber, handleNumberAddition }) => {
+  return (
+    <form onSubmit={addNameAndNumber}>
+      <div>
+        name: <input value={newName} onChange={handleNameAddition}/>
+      </div>
+      <div>
+        number: <input value={newNumber} onChange={handleNumberAddition}/>
+      </div>
+      <div>
+        <button type="submit">add</button>
+      </div>
+    </form>
+  )
+}
+
+const Filter = ({ userNameSearch, setUserNameSearch}) => {
+  return (
+    <>
+     <div>
+        search for a name with: <input value={userNameSearch} onChange={(event) => setUserNameSearch(event.target.value)}/>
+      </div>
+    </>
+  )
+}
+
+const List = ({id, person, number}) => {
+  return (
+    <ul>
+      <li>{person} {number}</li>
+    </ul>
+  )
+}
+
+const App = () => {
+  const [persons, setPersons] = useState([
+    { name: 'Arto Hellas', number: '040-123456' },
+    { name: 'Ada Lovelace', number: '39-44-5323523' },
+    { name: 'Dan Abramov', number: '12-43-234345' },
+    { name: 'Mary Poppendieck', number: '39-23-6423122' }
+  ])
+  const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
+  const [userNameSearch, setUserNameSearch] = useState('')
+
+  const addNameAndNumber = (event) => {
+    event.preventDefault()
+    const newNameObject = {
+      name: newName,
+      number: newNumber,
+      id: persons.length + 1
+    }
+
+    alertNameDuplicate(newNameObject)
+    setNewName('')
+  }
+
+  const alertNameDuplicate = (newNameObject) => {
+    const findDuplicateName = persons.find(person => person.name === newNameObject.name)
+    findDuplicateName ? alert(`${newNameObject.name} is already added to the phonebook!`) : setPersons(persons.concat(newNameObject))
+  }
+
+  const handleNameAddition = (event) => { //refactor, check value type (number or string) to see where to add the value?
+    setNewName(event.target.value)
+  }
+
+  const handleNumberAddition = (event) => {
+    setNewNumber(event.target.value)
+  }
+
+  const phoneList = !userNameSearch ? persons : persons.filter(person => person.name.toLowerCase().includes(userNameSearch.toLowerCase()))
+
+
+  const allNames = phoneList.map(person => {
+    return (
+      <List 
+        key={person.name}
+        person={person.name}
+        number={person.number}
+      />
+    )
+  })
+
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <PersonForm 
+        addNameAndNumber={addNameAndNumber} 
+        newName={newName} 
+        newNumber={newNumber} 
+        handleNameAddition={handleNameAddition}
+        handleNumberAddition={handleNumberAddition}
+      />
+      <h2>Filter Numbers</h2>
+      <Filter 
+        userNameSearch={userNameSearch}
+        setUserNameSearch={setUserNameSearch}
+      />
+      <h2>Numbers</h2>
+      {allNames}
+    </div>
+  )
+}
+
+export default App
 
 // const Course = ({ course }) => {
     

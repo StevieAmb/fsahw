@@ -213,7 +213,7 @@ const App = () => {
         <Note 
           key={note.id} 
           note={note} 
-          toggleImportance={toggleImportanceOf}
+          toggleImportance={toggleImportanceOf(node.id)}
         />
       )}
       </ul>

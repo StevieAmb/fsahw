@@ -191,6 +191,10 @@ const App = () => {
       })
   }
 
+  const toggleImportanceOf = (id) => {
+    console.log('importance of ' + id + ' needs to be toggled')
+  }
+
   const handleNoteChange = (event) => {
     console.log(event.target.value)
     setNewNote(event.target.value)
@@ -209,6 +213,7 @@ const App = () => {
         <Note 
           key={note.id} 
           note={note} 
+          toggleImportance={toggleImportanceOf}
         />
       )}
       </ul>

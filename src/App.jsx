@@ -176,7 +176,7 @@ const App = () => {
   ? notes
   : notes.filter(note => note.important === true)
 
-  addNote = event => {
+  const addNote = event => {
     event.preventDefault()
     const noteObject = {
       content: newNote,
@@ -184,7 +184,7 @@ const App = () => {
     }
   
     axios
-      .post('http://localhost:3001/notes', noteObject)
+      .post('http://localhost:3001/persons', noteObject)
       .then(response => {
         console.log(response)
       })

@@ -186,7 +186,8 @@ const App = () => {
     axios
       .post('http://localhost:3001/persons', noteObject)
       .then(response => {
-        console.log(response)
+        setNotes(notes.concat(response.data))
+        setNewNote('')
       })
   }
 

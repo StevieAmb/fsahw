@@ -34,6 +34,11 @@
       "id": "5864",
       "content": "a new note...",
       "important": false
+    },
+    {
+      "id": "17a2",
+      "content": "a new note...",
+      "important": true
     }
   ]
 }

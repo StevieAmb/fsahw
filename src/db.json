@@ -24,6 +24,16 @@
       "id": "d12d",
       "content": "New nore",
       "important": false
+    },
+    {
+      "id": "6099",
+      "content": "New note",
+      "important": true
+    },
+    {
+      "id": "5864",
+      "content": "a new note...",
+      "important": false
     }
   ]
 }

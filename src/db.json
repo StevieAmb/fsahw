@@ -23,12 +23,12 @@
     {
       "id": "d12d",
       "content": "New nore",
-      "important": false
+      "important": true
     },
     {
       "id": "6099",
       "content": "New note",
-      "important": true
+      "important": false
     },
     {
       "id": "5864",

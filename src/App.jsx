@@ -164,9 +164,9 @@ const App = () => {
   const hook = () => {
     console.log('effect')
     noteServices.getAll()
-      .then(response => {
+      .then(initialNotes => {
         console.log('promise fulfilled')
-        setNotes(response.data)
+        setNotes(initialNotes)
       })
   }
   
@@ -184,8 +184,8 @@ const App = () => {
     }
   
       noteServices.create(noteObject)
-      .then(response => {
-        setNotes(notes.concat(response.data))
+      .then(addedNote => {
+        setNotes(notes.concat(addedNote))
         setNewNote('')
       })
   }
@@ -197,8 +197,8 @@ const App = () => {
 
     noteServices
       .update(id, changedNote)
-      .then(response => {
-      setNotes(notes.map(n => n.id === id ? response.data : n))
+      .then(alteredNote => {
+      setNotes(notes.map(n => n.id === id ? alteredNote : n))
     })
   }
 

@@ -315,7 +315,7 @@ const App = () => {
 
     noteServices.removeItem(id, personToDelete)
     .then(removedPerson => {
-      alert(`${removedPerson} has been removed!`)
+      alert(`${personToDelete} has been removed!`)
     })
   }
 

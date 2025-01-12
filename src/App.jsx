@@ -195,8 +195,10 @@ const App = () => {
     const url = `http://localhost:3001/persons/${id}`
     const note = notes.find(n => n.id === id)
     const changedNote = { ...note, important: !note.important }
-  
-    axios.put(url, changedNote).then(response => {
+
+    noteServices
+      .update(id, changedNote)
+      .then(response => {
       setNotes(notes.map(n => n.id === id ? response.data : n))
     })
   }

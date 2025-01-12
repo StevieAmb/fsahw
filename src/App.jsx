@@ -339,6 +339,7 @@ const App = () => {
     return (
       <List 
         key={person.name}
+        id={person.id}
         person={person.name}
         number={person.number}
         deleteNameAndNumber={deleteNameAndNumber}

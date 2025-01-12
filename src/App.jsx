@@ -270,10 +270,10 @@ const Filter = ({ userNameSearch, setUserNameSearch}) => {
   )
 }
 
-const List = ({id, person, number}) => {
+const List = ({id, person, number, deleteNameAndNumber}) => {
   return (
     <ul>
-      <li>{person} {number} <button>delete</button></li> 
+      <li>{person} {number} <button onClick={deleteNameAndNumber}>delete</button></li> 
     </ul>
   )
 }
@@ -315,7 +315,7 @@ const App = () => {
 
     noteServices.removeItem(id, personToDelete)
     .then(removedPerson => {
-      alert(`${personToDelete} has been removed!`)
+      alert(`${removedPerson} has been removed!`)
     })
   }
 

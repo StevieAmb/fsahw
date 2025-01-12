@@ -273,15 +273,13 @@ const Filter = ({ userNameSearch, setUserNameSearch}) => {
 const List = ({id, person, number}) => {
   return (
     <ul>
-      <li>{person} {number}</li>
+      <li>{person} {number} <button>delete</button></li> 
     </ul>
   )
 }
 
 const App = () => {
   const [persons, setPersons] = useState([])
-
-
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [userNameSearch, setUserNameSearch] = useState('')
@@ -309,6 +307,11 @@ const App = () => {
 
     alertNameDuplicate(newNameObject)
     setNewName('')
+  }
+
+  const deleteNameAndNumber = (id) => {
+    const url = `http://localhost:3001/persons/%{id}`
+    const personToDelete = persons.find(person => person.id === id)
   }
 
   const alertNameDuplicate = (newNameObject) => {

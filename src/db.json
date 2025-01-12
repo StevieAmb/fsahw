@@ -33,7 +33,7 @@
     {
       "id": "5864",
       "content": "a new note...",
-      "important": false
+      "important": true
     },
     {
       "id": "17a2",
@@ -43,7 +43,7 @@
     {
       "id": "c53c",
       "content": "a new note...",
-      "important": false
+      "important": true
     },
     {
       "id": "71b5",

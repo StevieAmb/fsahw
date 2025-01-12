@@ -151,6 +151,7 @@ import axios from "axios"
 // export default App
 
 import Note from "./components/Note"
+import noteServices from './services/notes'
 
 const App = () => {
 
@@ -162,8 +163,7 @@ const App = () => {
   
   const hook = () => {
     console.log('effect')
-    axios
-      .get('http://localhost:3001/persons')
+    noteServices.getAll()
       .then(response => {
         console.log('promise fulfilled')
         setNotes(response.data)

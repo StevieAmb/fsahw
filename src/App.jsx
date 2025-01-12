@@ -271,9 +271,10 @@ const Filter = ({ userNameSearch, setUserNameSearch}) => {
 }
 
 const List = ({id, person, number, deleteNameAndNumber}) => {
+  console.log(id)
   return (
     <ul>
-      <li>{person} {number} <button onClick={deleteNameAndNumber}>delete</button></li> 
+      <li>{person} {number} <button onClick={() => deleteNameAndNumber(id)}>delete</button></li> 
     </ul>
   )
 }
@@ -310,7 +311,6 @@ const App = () => {
   }
 
   const deleteNameAndNumber = (id) => {
-    const url = `http://localhost:3001/persons/%{id}`
     const personToDelete = persons.find(person => person.id === id)
 
     noteServices.removeItem(id, personToDelete)

@@ -11,13 +11,14 @@ const create = newObject => {
   return request.then(response => response.data)
 }
 
-const update = (id, newObject) => {
-  const request = axios.put(`${baseUrl}/${id}`, newObject)
+const update = (id) => {
+  const request = axios.put(`${baseUrl}/${id}`)
   return request.then(response => response.data)
 }
 
 const removeItem = (id, deletedObject) => {
-  const request = axios.delete(`${baseUrl}/${id}`)
+  const request = axios.delete(`${baseUrl}/${id}`, deletedObject)
+  console.log(id)
   return request.then(response => response.data)
 }
 

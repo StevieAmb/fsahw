@@ -19,41 +19,6 @@
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
       "id": "4"
-    },
-    {
-      "id": "d12d",
-      "content": "New nore",
-      "important": true
-    },
-    {
-      "id": "6099",
-      "content": "New note",
-      "important": false
-    },
-    {
-      "id": "5864",
-      "content": "a new note...",
-      "important": true
-    },
-    {
-      "id": "17a2",
-      "content": "a new note...",
-      "important": true
-    },
-    {
-      "id": "c53c",
-      "content": "a new note...",
-      "important": true
-    },
-    {
-      "id": "71b5",
-      "content": "An important note",
-      "important": false
-    },
-    {
-      "id": "d7a2",
-      "content": "Add this one",
-      "important": true
     }
   ]
 }

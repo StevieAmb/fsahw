@@ -49,6 +49,11 @@
       "id": "71b5",
       "content": "An important note",
       "important": false
+    },
+    {
+      "id": "d7a2",
+      "content": "Add this one",
+      "important": true
     }
   ]
 }

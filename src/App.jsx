@@ -183,8 +183,7 @@ const App = () => {
       important: Math.random() < 0.5,
     }
   
-    axios
-      .post('http://localhost:3001/persons', noteObject)
+      noteServices.create(noteObject)
       .then(response => {
         setNotes(notes.concat(response.data))
         setNewNote('')

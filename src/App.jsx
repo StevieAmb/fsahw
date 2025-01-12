@@ -312,6 +312,11 @@ const App = () => {
   const deleteNameAndNumber = (id) => {
     const url = `http://localhost:3001/persons/%{id}`
     const personToDelete = persons.find(person => person.id === id)
+
+    noteServices.removeItem(id, personToDelete)
+    .then(removedPerson => {
+      alert(`${personToDelete} has been removed!`)
+    })
   }
 
   const alertNameDuplicate = (newNameObject) => {
@@ -336,6 +341,7 @@ const App = () => {
         key={person.name}
         person={person.name}
         number={person.number}
+        deleteNameAndNumber={deleteNameAndNumber}
       />
     )
   })

@@ -241,6 +241,8 @@ import axios from "axios"
 
 // export default App
 
+import './index.css'
+
 import noteServices from './services/notes'
 
 

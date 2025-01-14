@@ -245,6 +245,18 @@ import './index.css'
 
 import noteServices from './services/notes'
 
+const Notification = ({ message }) => {
+  if (message === null) {
+    return null
+  }
+
+  return (
+    <div className='error'>
+      {message}
+    </div>
+  )
+}
+
 
 const PersonForm = ({addNameAndNumber, newName, handleNameAddition, newNumber, handleNumberAddition }) => {
   return (

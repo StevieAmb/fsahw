@@ -364,6 +364,7 @@ const App = () => {
 
   return (
     <div>
+      <Notification message={errorMessage} />
       <h2>Phonebook</h2>
       <PersonForm 
         addNameAndNumber={addNameAndNumber} 

@@ -298,6 +298,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [userNameSearch, setUserNameSearch] = useState('')
+  const [errorMessage, setErrorMessage] = useState('some error happened...')
 
   const hook = () => {
         console.log('effect')

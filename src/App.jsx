@@ -152,6 +152,7 @@ import axios from "axios"
 
 import Note from "./components/Note"
 import noteServices from './services/notes'
+import Notification from "./components/Notifications"
 
 const App = () => {
 
@@ -219,6 +220,7 @@ const App = () => {
   return (
     <div>
       <h1>Notes</h1>
+      <Notification message={errorMessage} />
       <ul>
       <div>
         <button onClick={() => setShowAll(!showAll)}>

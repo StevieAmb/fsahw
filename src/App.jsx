@@ -153,6 +153,7 @@ import axios from "axios"
 import Note from "./components/Note"
 import noteServices from './services/notes'
 import Notification from "./components/Notifications"
+import Footer from "./components/Footer"
 
 const App = () => {
 
@@ -239,6 +240,7 @@ const App = () => {
         <input value={newNote} onChange={handleNoteChange}/>
         <button type="submit">save</button>
       </form>  
+      <Footer />
     </div>
   )
 }
